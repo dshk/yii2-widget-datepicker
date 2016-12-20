@@ -296,7 +296,9 @@ class DatePicker extends InputWidget
      */
     protected function renderInput()
     {
-        Html::addCssClass($this->options, 'form-control');
+        if (empty($this->options['class'])) {
+            Html::addCssClass($this->options, 'form-control');
+        }
         if ($this->type == self::TYPE_INLINE) {
             if (empty($this->options['readonly'])) {
                 $this->options['readonly'] = true;
